@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,10 +16,9 @@ import java.util.List;
 public class Workspace {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Setter(AccessLevel.NONE)
   @Column(name = "id")
-  private int id;
+  private UUID uuid;
 
   @Column(name = "description")
   private String description;
@@ -42,6 +42,7 @@ public class Workspace {
   private List<Reservation> reservations;
 
   public Workspace(String description, WorkspaceType type, int capacity, Building building, boolean isAvailable) {
+    this.uuid = UUID.randomUUID();
     this.description = description;
     this.type = type;
     this.capacity = capacity;

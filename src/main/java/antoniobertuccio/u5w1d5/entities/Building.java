@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,10 +15,9 @@ import java.util.List;
 public class Building {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Setter(AccessLevel.NONE)
   @Column(name = "id")
-  private int id;
+  private UUID uuid;
 
   @Column(name = "name")
   private String name;
@@ -33,6 +33,7 @@ public class Building {
   private List<Workspace> workspaces;
 
   public Building(String name, String address, String city) {
+    this.uuid = UUID.randomUUID();
     this.name = name;
     this.address = address;
     this.city = city;

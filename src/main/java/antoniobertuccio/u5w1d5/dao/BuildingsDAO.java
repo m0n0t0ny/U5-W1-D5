@@ -1,16 +1,16 @@
 package antoniobertuccio.u5w1d5.dao;
 
 import antoniobertuccio.u5w1d5.entities.Building;
+import antoniobertuccio.u5w1d5.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
-public interface BuildingsDAO {
+@Repository
+public interface BuildingsDAO extends JpaRepository<Building, UUID> {
 
+  @Override
   List<Building> findAll();
-
-  Building findById(int id);
-
-  void save(Building building);
-
-  void delete(Building building);
 }

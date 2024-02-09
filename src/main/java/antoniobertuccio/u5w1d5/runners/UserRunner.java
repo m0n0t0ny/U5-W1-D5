@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.Locale;
 
 @Component
-public class UserMakerRunner implements CommandLineRunner {
+public class UserRunner implements CommandLineRunner {
 
   @Autowired
   private UsersDAO usersDAO;
@@ -26,6 +26,6 @@ public class UserMakerRunner implements CommandLineRunner {
 
     User newUser = new User(username, name, surname, email);
     usersDAO.save(newUser);
-    System.out.println("💾 New user " + newUser.getUsername() + " saved.");
+    System.out.println("💾 New user '" + newUser.getUsername() + "' saved.");
   }
 }

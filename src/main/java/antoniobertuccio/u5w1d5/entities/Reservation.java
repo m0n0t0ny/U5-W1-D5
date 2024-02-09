@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,10 +15,9 @@ import java.time.LocalDate;
 public class Reservation {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Setter(AccessLevel.NONE)
   @Column(name = "id")
-  private int id;
+  private UUID uuid;
 
   @ManyToOne
   @JoinColumn(name = "user_id")
@@ -34,6 +34,7 @@ public class Reservation {
   private LocalDate bookingEnd;
 
   public Reservation(User user, Workspace workspace, LocalDate bookingStart, LocalDate bookingEnd) {
+    this.uuid = UUID.randomUUID();
     this.user = user;
     this.workspace = workspace;
     this.bookingStart = bookingStart;

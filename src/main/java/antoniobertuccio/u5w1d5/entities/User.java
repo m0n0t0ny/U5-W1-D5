@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,10 +15,9 @@ import java.util.List;
 public class User {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Setter(AccessLevel.NONE)
   @Column(name = "id")
-  private int id;
+  private UUID uuid;
 
   @Column(name = "username")
   private String username;
@@ -36,6 +36,7 @@ public class User {
   private List<Reservation> reservations;
 
   public User(String username, String name, String surname, String email) {
+    this.uuid = UUID.randomUUID();
     this.username = username;
     this.name = name;
     this.surname = surname;
