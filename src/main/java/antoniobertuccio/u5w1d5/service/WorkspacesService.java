@@ -20,4 +20,8 @@ public class WorkspacesService {
   public List<Workspace> findAll() {
     return workspacesDAO.findAll();
   }
+
+  public List<Workspace> findAvailableWorkspacesByTypeAndCity(String type, String city) {
+    return workspacesDAO.findByTypeAndBuilding_CityAndIsAvailableIsTrue(type, city);
+  }
 }

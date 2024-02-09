@@ -33,11 +33,10 @@ public class Reservation {
   @Column(name = "booking_end")
   private LocalDate bookingEnd;
 
-  public Reservation(User user, Workspace workspace, LocalDate bookingStart, LocalDate bookingEnd) {
+  public Reservation(User user, Workspace workspace, LocalDate bookingStart) {
     this.uuid = UUID.randomUUID();
     this.user = user;
     this.workspace = workspace;
     this.bookingStart = bookingStart;
-    this.bookingEnd = bookingEnd;
   }
 }

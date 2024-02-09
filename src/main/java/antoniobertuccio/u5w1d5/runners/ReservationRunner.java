@@ -37,9 +37,8 @@ public class ReservationRunner implements CommandLineRunner {
     List<Workspace> workspaceList = workspacesDAO.findAll();
     Workspace workspace = workspaceList.get(faker.number().numberBetween(0, workspaceList.size()));
     LocalDate bookingStart = LocalDate.now().plusDays(1 + new Random().nextInt(364));
-    LocalDate bookingEnd = bookingStart.plusDays(faker.random().nextInt(1, 14));
 
-    Reservation newReservation = new Reservation(user, workspace, bookingStart, bookingEnd);
+    Reservation newReservation = new Reservation(user, workspace, bookingStart);
     reservationsDAO.save(newReservation);
     System.out.println("💾 New reservation '" + newReservation.getUuid() + "' saved.");
   }

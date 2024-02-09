@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Component
-public class WorkspaceRunner implements CommandLineRunner {
+public class WorkspacePrivateRunner implements CommandLineRunner {
 
   @Autowired
   private WorkspacesDAO workspacesDAO;
